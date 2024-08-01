@@ -142,5 +142,5 @@ body {
 }
 
 .back-page {
-  transform: scaleY(-1);
+  transform: rotateX(180deg);
 }
