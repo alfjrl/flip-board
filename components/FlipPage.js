@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 const characters = [
   "",
   "a",
@@ -67,7 +69,30 @@ const characters = [
   "purple",
 ];
 
-export default function FlipPage({ isFlipped, front, back, order }) {
+export default function FlipPage({
+  isFlipped,
+  front,
+  back,
+  order,
+  delay = 150,
+}) {
+  const [displayedChar, setDisplayedChar] = useState(characters[front]);
+
+  useEffect(() => {
+    let timeoutId;
+    if (isFlipped) {
+      timeoutId = setTimeout(() => {
+        setDisplayedChar(characters[back]);
+      }, delay);
+    } else {
+      setDisplayedChar(characters[front]);
+    }
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [isFlipped, front, back, characters, delay]);
+
   return (
     <>
       <div
@@ -81,11 +106,11 @@ export default function FlipPage({ isFlipped, front, back, order }) {
             <div className="w-[128px] h-[50px] bg-white relative top-[0px] left-[6px]" />
           </div>
           <div
-            className={` w-full relative top-[-26px] text-[160px] font-medium text-center uppercase ${
+            className={`w-full relative top-[-14px] text-[140px] font-medium text-center uppercase ${
               isFlipped ? "back-page" : "front-page"
             }`}
           >
-            {isFlipped ? characters[back] : characters[front]}
+            {displayedChar}
           </div>
         </div>
       </div>

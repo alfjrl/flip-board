@@ -3,9 +3,10 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import FlipPage from "./FlipPage";
 
 export default function FlipPages({ targetNumber }) {
+  const [currentNumber, setCurrentNumber] = useState(0);
   const [pages, setPages] = useState(() => [
-    { id: 2, front: 1, back: 2, isFlipped: false },
-    { id: 1, front: 0, back: 1, isFlipped: false },
+    { id: 2, front: 0, back: 0, isFlipped: false },
+    { id: 1, front: 0, back: 0, isFlipped: false },
     { id: 0, front: 0, back: 0, isFlipped: false },
     ...Array(7)
       .fill(null)
@@ -21,8 +22,8 @@ export default function FlipPages({ targetNumber }) {
 
   const updatePages = useCallback(() => {
     setPages((prevPages) => {
-      const front = prevPages[0].back % 64;
-      const back = (prevPages[0].back + 1) % 64;
+      const front = prevPages[0].back;
+      const back = (front + 1) % 64;
       const newPages = [
         {
           id: nextId.current++,
@@ -36,13 +37,18 @@ export default function FlipPages({ targetNumber }) {
       ];
       const filteredPages = newPages.filter((_, index) => index !== 10);
 
-      // Check if the third page's front matches the target number
+      setCurrentNumber(filteredPages[2].front);
+
       if (filteredPages[2].front === targetNumber) {
         setIsTargetReached(true);
       }
 
       return filteredPages;
     });
+  }, [targetNumber]);
+
+  useEffect(() => {
+    setIsTargetReached(false);
   }, [targetNumber]);
 
   useEffect(() => {

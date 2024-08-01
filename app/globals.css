@@ -107,10 +107,12 @@ body {
   top: 176px;
 }
 
-.order-2.back-page {
-  animation: flip-bottom 0.5s ease-in;
+.order-3.back-page {
+  animation: flip-bottom 0.2s ease-in;
   transform: rotateX(180deg);
   transform-origin: center 91px;
+
+  top: 24px;
 }
 
 @keyframes flip-bottom {
@@ -122,22 +124,17 @@ body {
   }
 }
 
-.order-2 {
-  transition: transform 0.5s ease-in-out;
-  transform-origin: center 91px;
-}
-
-.order-2.flipping {
-  transform: rotateX(-180deg);
-}
-
-.order-3 {
-  transition: transform 0.5s ease-in-out;
-  transform-origin: center top;
-}
-
-.order-3.flipping {
-  transform: rotateX(0deg);
+.order-0,
+.order-1,
+.order-2,
+.order-3,
+.order-4,
+.order-5,
+.order-6,
+.order-7,
+.order-8,
+.order-9 {
+  transition: all 0.2s ease;
 }
 
 .flip-deco-t {
