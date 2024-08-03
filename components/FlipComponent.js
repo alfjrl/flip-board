@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import FlipPages from "./FlipPages";
 
 export default function FlipComponent({ id, target }) {
@@ -9,9 +9,7 @@ export default function FlipComponent({ id, target }) {
   if (targetNumber !== target) {
     setTargetNumber(target);
   }
-  // if (targetNumber === target) {
-  //   // setTargetNumber(target);
-  // }
+
   const handleTargetChange = (event) => {
     const newTarget = parseInt(event.target.value, 10);
     setTargetNumber(isNaN(newTarget) ? 0 : newTarget);

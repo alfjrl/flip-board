@@ -1,3 +1,5 @@
+"use client";
+
 import FlipComponent from "@/components/FlipComponent";
 
 export default function Home() {

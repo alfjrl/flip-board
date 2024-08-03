@@ -9,7 +9,6 @@ export default function FlipPage({
   order,
   delay = 150,
 }) {
-  const [displayedChar, setDisplayedChar] = useState(characters[front]);
   const characters = [
     "",
     "a",
@@ -76,6 +75,8 @@ export default function FlipPage({
     "blue",
     "purple",
   ];
+
+  const [displayedChar, setDisplayedChar] = useState(characters[front]);
 
   useEffect(() => {
     let timeoutId;
