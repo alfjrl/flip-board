@@ -25,7 +25,7 @@ export default function FlipComponent({ id, target }) {
         <div className="flip-deco-r absolute w-[8px] h-[100px] bg-white right-[6px] top-[65px]"></div>
         <div className="flip-deco-l absolute w-[8px] h-[100px] bg-white left-[6px] top-[65px]"></div>
         <div className="flip-deco-t absolute w-4 h-[30px] bg-[#dedede] rounded-bl-[5px] rounded-br-[5px] shadow top-0 left-[72px]" />
-        <FlipPages targetNumber={targetNumber} />
+        <FlipPages targetNumber={targetNumber} id={id} />
       </div>
       {/* <div className="mt-4">
         <input
