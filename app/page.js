@@ -2,18 +2,15 @@ import FlipComponent from "@/components/FlipComponent";
 
 export default function Home() {
   const targetNumbers = [
-    1, 1, 1, 0, 0, 13, 0, 13, 34, 0, 0, 2, 0, 21, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0, 0, 0, 0,
+    12, 45, 3, 58, 27, 9, 61, 33, 17, 52, 6, 39, 23, 55, 1, 48, 30, 14, 63, 36,
+    8, 50, 19, 42, 2, 57, 25, 11, 46, 5, 60, 31, 16, 54, 7, 41, 22, 59, 0, 38,
+    20, 49, 4, 62, 29, 13, 53, 35, 10, 44, 26, 56, 15, 37, 21, 51,
   ];
 
   // Ensure we have exactly 132 numbers
   if (targetNumbers.length !== 56) {
     console.warn(
-      `Warning: You need to provide exactly 132 target numbers. Current count: ${targetNumbers.length}`
+      `Warning: You need to provide exactly 56 target numbers. Current count: ${targetNumbers.length}`
     );
   }
 
