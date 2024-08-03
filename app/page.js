@@ -28,7 +28,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between px-[160px] py-[190px] bg-[#dedede]">
       <div className="page-base">
         {flipComponents.map(({ id, target }) => (
-          <div className="component-wrap">
+          <div className="component-wrap" key={id}>
             <FlipComponent key={id} target={target} />
             {/* <div>{target}</div> */}
           </div>
