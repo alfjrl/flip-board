@@ -3,9 +3,15 @@
 import { useState, useCallback } from "react";
 import FlipPages from "./FlipPages";
 
-export default function FlipComponent() {
-  const [targetNumber, setTargetNumber] = useState(10);
+export default function FlipComponent({ id, target }) {
+  const [targetNumber, setTargetNumber] = useState(0);
 
+  if (targetNumber !== target) {
+    setTargetNumber(target);
+  }
+  // if (targetNumber === target) {
+  //   // setTargetNumber(target);
+  // }
   const handleTargetChange = (event) => {
     const newTarget = parseInt(event.target.value, 10);
     setTargetNumber(isNaN(newTarget) ? 0 : newTarget);
@@ -21,7 +27,7 @@ export default function FlipComponent() {
         <div className="flip-deco-t absolute w-4 h-[30px] bg-[#dedede] rounded-bl-[5px] rounded-br-[5px] shadow top-0 left-[72px]" />
         <FlipPages targetNumber={targetNumber} />
       </div>
-      <div className="mt-4">
+      {/* <div className="mt-4">
         <input
           type="number"
           id="targetNumber"
@@ -30,7 +36,7 @@ export default function FlipComponent() {
           value={targetNumber}
           onChange={handleTargetChange}
         />
-      </div>
+      </div> */}
     </>
   );
 }
